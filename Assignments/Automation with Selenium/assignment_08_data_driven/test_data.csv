@@ -1,0 +1,3 @@
+test_id,email,password,expected
+CSV-01,ddt.csv.unregistered1@example.com,WrongPass!1,invalid
+CSV-02,ddt.csv.unregistered2@example.com,WrongPass!2,invalid

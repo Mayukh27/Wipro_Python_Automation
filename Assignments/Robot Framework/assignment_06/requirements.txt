@@ -1,0 +1,3 @@
+robotframework>=6.1.0
+robotframework-seleniumlibrary>=6.2.0
+robotframework-pabot>=2.18.0

@@ -1,0 +1,4 @@
+[
+  {"test_id": "JSON-01", "email": "ddt.json.unregistered1@example.com", "password": "WrongPass!3", "expected": "invalid"},
+  {"test_id": "JSON-02", "email": "ddt.json.unregistered2@example.com", "password": "WrongPass!4", "expected": "invalid"}
+]

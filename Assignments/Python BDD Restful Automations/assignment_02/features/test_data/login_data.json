@@ -1,0 +1,5 @@
+[
+  {"email": "json.combo1@example.com", "password": "JsonWrong!21"},
+  {"email": "json.combo2@example.com", "password": "JsonWrong!22"},
+  {"email": "json.combo3@example.com", "password": "JsonWrong!23"}
+]
