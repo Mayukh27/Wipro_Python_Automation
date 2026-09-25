@@ -1,29 +1,20 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    OperatingSystem
-Library    String
-Library    Collections
+Library    DataDriver    file=${CURDIR}/test_data/data.csv    dialect=excel
+Suite Setup    Open Browser    about:blank    ${BROWSER}
+Suite Teardown    Close Browser
+Test Template    Attempt Login
 
 *** Variables ***
 ${LOGIN_URL}    https://automationexercise.com/login
 ${BROWSER}    Chrome
-${DATA_FILE}    ${CURDIR}/test_data/data.csv
 ${EMAIL_INPUT}    css:input[data-qa='login-email']
 ${PASSWORD_INPUT}    css:input[data-qa='login-password']
 ${LOGIN_BUTTON}    css:button[data-qa='login-button']
 ${ERROR_MESSAGE}    css:div.login-form p
 
 *** Test Cases ***
-Login Attempts Driven By External CSV Data
-    Open Browser    about:blank    ${BROWSER}
-    ${file_content}=    Get File    ${DATA_FILE}
-    @{lines}=    Split To Lines    ${file_content}
-    Remove From List    ${lines}    0
-    FOR    ${line}    IN    @{lines}
-        @{parts}=    Split String    ${line}    ,
-        Attempt Login    ${parts}[0]    ${parts}[1]
-    END
-    [Teardown]    Close Browser
+Login Attempt Using External CSV Data    username    password
 
 *** Keywords ***
 Attempt Login

@@ -1,6 +1,7 @@
 import time
 from behave import given, when, then
 from pages.login_page import LoginPage
+from pages.signup_page import SignupPage
 from pages.dashboard_page import DashboardPage
 
 @given('the user opens the login page')
@@ -22,7 +23,9 @@ def step_register_new_account(context):
     unique_email = f'behave.pom.{int(time.time())}@example.com'
     context.registered_password = 'BehavePOM!2024'
     context.login_page.start_signup('Behave POM User', unique_email)
-    context.login_page.complete_registration(password=context.registered_password, first_name='Behave', last_name='POM', address='321 Gherkin Way', country='United States', state='Washington', city='Seattle', zipcode='98101', mobile='5554443322')
+    context.signup_page = SignupPage(context.driver)
+    context.signup_page.wait_for_account_information_form()
+    context.signup_page.complete_registration(password=context.registered_password, first_name='Behave', last_name='POM', address='321 Gherkin Way', country='United States', state='Washington', city='Seattle', zipcode='98101', mobile='5554443322')
 
 @then('the dashboard should show the user as logged in')
 def step_verify_dashboard_logged_in(context):

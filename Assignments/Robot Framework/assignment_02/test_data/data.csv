@@ -1,4 +1,4 @@
-username,password
-rf.csv.user1@example.com,WrongPass!201
-rf.csv.user2@example.com,WrongPass!202
-rf.csv.user3@example.com,WrongPass!203
+*** Test Cases ***,${username},${password}
+Login Attempt 1,rf.csv.user1@example.com,WrongPass!201
+Login Attempt 2,rf.csv.user2@example.com,WrongPass!202
+Login Attempt 3,rf.csv.user3@example.com,WrongPass!203
